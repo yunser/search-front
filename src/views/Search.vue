@@ -23,6 +23,7 @@
                     搜不到结果，请换个关键词试试~
                 </div>
                 <li class="item" v-for="item of results">
+                    <img class="img" :src="item.image" v-if="item.image">
                     <a class="title" :href="item.url" target="_blank">{{ item.title }}</a>
                     <div class="content">{{ item.content }}</div>
                     <a class="url" :href="item.url" target="_blank">{{ item.url }}</a>
@@ -131,6 +132,14 @@
     width: 560px;
     .item {
         margin-bottom: 24px;
+        overflow: hidden;
+    }
+    .img {
+        float: left;
+        width: 64px;
+        height: 64px;
+        margin-right: 16px;
+        border-radius: 8px;
     }
     .title {
         color: #1a0dab;
