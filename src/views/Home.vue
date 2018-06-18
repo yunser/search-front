@@ -3,7 +3,7 @@
         <div class="wrap">
             <img class="logo" src="/static/img/yunser.svg">
             <div class="search-box">
-                <input class="input" v-model="keyword" placeholder="">
+                <input class="input" v-model="keyword" placeholder="" @keydown="keyDown($event)">
                 <ui-icon-button icon="search" title="搜索" primary @click="search" />
             </div>
         </div>
@@ -17,7 +17,21 @@
                 keyword: ''
             }
         },
+        // mounted() {
+        //     document.addEventListener('keydown', this._keyDown = e => {
+        //         console.log(e.keyCode)
+        //     })
+        // },
+        // destroyed() {
+
+        // },
         methods: {
+            keyDown(e) {
+                console.log(e.keyCode)
+                if (e.keyCode === 13) {
+                    this.search()
+                }
+            },
             search() {
                 if (!this.keyword) {
                     this.$message({
@@ -26,10 +40,7 @@
                     })
                     return
                 }
-                if (this.keyword.match(/^[0-9]+$/)) {
-                    // alert('数字')
-                }
-                this.$router.push('/search?keyword=' + this.keyword)
+                this.$router.push('/search?keyword=' + encodeURIComponent(this.keyword))
             }
         }
     }
