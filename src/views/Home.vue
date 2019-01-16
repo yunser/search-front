@@ -1,9 +1,12 @@
 <template>
-    <my-page title="搜索">
+    <my-page title="搜索" :page="page">
         <div class="wrap">
-            <img class="logo" src="/static/img/yunser.svg">
+            <img class="logo" src="/static/img/yunser.svg" v-if="icon === ''">
+            <a href="https://www.baidu.com/s?wd=感恩节" target="_blank" title="感恩节" v-if="icon === 'thanksgiving'">
+                <img class="logo" src="/static/img/thanksgiving.svg">
+            </a>
             <div class="search-box">
-                <input class="input" v-model="keyword" placeholder="" @keydown="keyDown($event)">
+                <input class="input" v-model="keyword" placeholder="搜应用、搜命令" @keydown="keyDown($event)">
                 <ui-icon-button icon="search" title="搜索" primary @click="search" />
             </div>
         </div>
@@ -11,17 +14,34 @@
 </template>
 
 <script>
+    /* eslint-disable */
     export default {
         data () {
             return {
-                keyword: ''
+                keyword: '',
+                icon: '',
+                page: {
+                    menu: [
+                        {
+                            type: 'icon',
+                            icon: 'apps',
+                            href: 'https://app.yunser.com?&utm_source=search',
+                            target: '_blank',
+                            title: '应用'
+                        }
+                    ]
+                }
             }
         },
-        // mounted() {
-        //     document.addEventListener('keydown', this._keyDown = e => {
-        //         console.log(e.keyCode)
-        //     })
-        // },
+        mounted() {
+            let now = new Date()
+            if (now.getFullYear() === 2018 && now.getMonth() === 11 - 1 && now.getDate() === 22) {
+                this.icon = 'thanksgiving'
+            }
+            // document.addEventListener('keydown', this._keyDown = e => {
+            //     console.log(e.keyCode)
+            // })
+        },
         // destroyed() {
 
         // },
@@ -49,11 +69,13 @@
 <style lang="scss" scoped>
 .wrap {
     width: 400px;
+    max-width: 100%;
     margin: 80px auto 0 auto;
 }
 .search-box {
     display: flex;
     width: 400px;
+    max-width: 100%;
     // border: 1px solid #eee;
     box-shadow: 0 1px 6px rgba(0,0,0,.117647), 0 1px 4px rgba(0,0,0,.117647);
     &:hover {
