@@ -69,6 +69,7 @@
 <style lang="scss" scoped>
 .wrap {
     width: 400px;
+    padding: 16px 16px 80px 16px;
     max-width: 100%;
     margin: 80px auto 0 auto;
 }
@@ -76,6 +77,7 @@
     display: flex;
     width: 400px;
     max-width: 100%;
+    margin-bottom: 16px;
     // border: 1px solid #eee;
     box-shadow: 0 1px 6px rgba(0,0,0,.117647), 0 1px 4px rgba(0,0,0,.117647);
     &:hover {

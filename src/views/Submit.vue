@@ -1,10 +1,12 @@
 <template>
     <my-page title="提交收录" :page="page">
-        <ui-text-field v-model="url" label="网站网址" />
-        <br>
-        <ui-text-field v-model="contact" label="联系方式" />
-        <br>
-        <ui-raised-button primary label="提交" @click="submit" />
+        <div class="common-container">
+            <ui-text-field v-model="url" label="网站网址" />
+            <br>
+            <ui-text-field v-model="contact" label="联系方式" />
+            <br>
+            <ui-raised-button primary label="提交" @click="submit" />
+        </div>
     </my-page>
 </template>
 

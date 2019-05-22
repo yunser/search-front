@@ -6,7 +6,7 @@
             </div>
             <ui-list @itemClick="toggle()">
                 <ui-list-item title="首页" to="/">
-                    <ui-icon slot="left" value="grade"/>
+                    <ui-icon slot="left" value="home"/>
                 </ui-list-item>
                 <ui-list-item title="帮助" href="https://project.yunser.com/articles/97f60ee0ea6211e8b72a8f73ced57134" target="_blank">
                     <ui-icon slot="left" value="help"/>
