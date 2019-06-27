@@ -356,7 +356,16 @@
                     })
                     return
                 }
+                
                 console.log('调整')
+                let logs = this.$storage.get('logs', [])
+                logs.unshift({
+                    id: '' + new Date().getTime(),
+                    keyword: this.keyword,
+                    createTime: new Date().getTime()
+                })
+                this.$storage.set('logs', logs)
+
                 if (this.$route.query.keyword === this.keyword) {
                     this.search()
                 } else {

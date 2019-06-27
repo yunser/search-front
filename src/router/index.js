@@ -4,6 +4,7 @@ import Router from 'vue-router'
 const Home = resolve => require(['@/views/Home'], resolve)
 const Search = resolve => require(['@/views/Search'], resolve)
 const Submit = resolve => require(['@/views/Submit'], resolve)
+const Log = resolve => require(['@/views/Log'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
 Vue.use(Router)
@@ -20,6 +21,10 @@ let routes = [
     {
         path: '/submit',
         component: Submit
+    },
+    {
+        path: '/log',
+        component: Log
     },
     {
         path: '*',

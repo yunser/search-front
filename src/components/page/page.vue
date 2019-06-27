@@ -11,6 +11,9 @@
                 <ui-list-item title="帮助" href="https://project.yunser.com/articles/97f60ee0ea6211e8b72a8f73ced57134" target="_blank">
                     <ui-icon slot="left" value="help"/>
                 </ui-list-item>
+                <ui-list-item title="搜索记录" to="/log">
+                    <ui-icon slot="left" value="history"/>
+                </ui-list-item>
                 <ui-list-item title="收录提交" to="/submit">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>

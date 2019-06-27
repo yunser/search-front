@@ -60,6 +60,13 @@
                     })
                     return
                 }
+                let logs = this.$storage.get('logs', [])
+                logs.unshift({
+                    id: '' + new Date().getTime(),
+                    keyword: this.keyword,
+                    createTime: new Date().getTime()
+                })
+                this.$storage.set('logs', logs)
                 this.$router.push('/search?keyword=' + encodeURIComponent(this.keyword))
             }
         }
