@@ -112,6 +112,10 @@
                                 <a class="title" href="#"  @click="openUrl(item)">{{ item.title }}</a>
                                 <div class="content">{{ item.content }}</div>
                                 <a class="url" href="#" @click="openUrl(item)">{{ item.url }}</a>
+
+                                <router-link href="javascript:;" 
+                                    :to="`/searchItems/${item.id}`"
+                                    v-if="item.isItem && $store.state.user && $store.state.user.id === '1'">编辑</router-link>
                             </div>
                         </div>
                     </div>

@@ -6,6 +6,7 @@ const Search = resolve => require(['@/views/Search'], resolve)
 const Submit = resolve => require(['@/views/Submit'], resolve)
 const Log = resolve => require(['@/views/Log'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
+const OauthCallback = resolve => require(['@/views/oauth/Callback'], resolve)
 
 Vue.use(Router)
 
@@ -14,6 +15,8 @@ let routes = [
         path: '/',
         component: Home
     },
+    { path: '/admin', component: resolve => require(['@/views/Admin'], resolve) },
+    { path: '/searchItems/:id', component: resolve => require(['@/views/SearchItemEdit'], resolve) },
     {
         path: '/search',
         component: Search
@@ -25,6 +28,10 @@ let routes = [
     {
         path: '/log',
         component: Log
+    },
+    {
+        path: '/oauth/callback',
+        component: OauthCallback
     },
     {
         path: '*',

@@ -17,6 +17,9 @@
                 <ui-list-item title="收录提交" to="/submit">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
+                <ui-list-item title="管理" to="/admin" v-if="$store.state.user && $store.state.user.id === '1'">
+                    <ui-icon slot="left" value="grade"/>
+                </ui-list-item>
                 <ui-list-item title="关于" href="https://project.yunser.com/products/9f482d30e8f111e8910a6b4ca8a9ec68" target="_blank">
                     <ui-icon slot="left" value="info"/>
                 </ui-list-item>
